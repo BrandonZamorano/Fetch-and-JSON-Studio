@@ -1,29 +1,29 @@
 // TODO: add code here
 window.addEventListener('load', (evt) => {
-  // Do stuff onLoad
+    // Do stuff onLoad
 
-  const containerEl = document.getElementById("container");
+    const containerEl = document.getElementById("container");
 
-  fetch("https://handlers.education.launchcode.org/static/astronauts.json")
-    .then(res => res.json())
-    .then(data => {
-      const sortedAstronauts = data
-        .sort((a, b) => b.hoursInSpace - a.hoursInSpace);
+    fetch("https://handlers.education.launchcode.org/static/astronauts.json")
+        .then(res => res.json())
+        .then(data => {
+            const sortedAstronauts = data
+                .sort((a, b) => b.hoursInSpace - a.hoursInSpace);
 
-      const htmlArr = sortedAstronauts.map(astronautToHTMLStr);
-      const htmlStr = `
+            const htmlArr = sortedAstronauts.map(astronautToHTMLStr);
+            const htmlStr = `
             <p>Astronaut count: ${sortedAstronauts.length}</p>
             ${htmlArr.join("")}
             `;
 
-      containerEl.innerHTML = htmlStr
+            containerEl.innerHTML = htmlStr
 
-    });
+        });
 });
 
 
 function astronautToHTMLStr(astronaut) {
-  return `
+    return `
                 <div class="astronaut">
                   <div class="bio">
                   <h3>${astronaut.firstName} ${astronaut.lastName}</h3>
