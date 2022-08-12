@@ -40,7 +40,7 @@ function astronautToHTMLStr(astronaut) {
                     <ul>
                       <li>Hourse in space: ${astronaut.hoursInSpace}</li>
                       <li class="${astronaut.active ? 'active' : ''}">Active: ${astronaut.active}</li>
-                      <li>Skills: ${astronaut.skills}</li>
+                      <li>Skills: ${astronaut.skills.join(", ")}</li>
                     </ul>
                   </div>
                   <img class="avatar" src="${astronaut.picture}" />
