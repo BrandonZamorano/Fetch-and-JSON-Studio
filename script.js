@@ -7,10 +7,15 @@ window.addEventListener('load', (evt) => {
     fetch("https://handlers.education.launchcode.org/static/astronauts.json")
         .then(res => res.json())
         .then(data => {
+            // Sort the array
             const sortedAstronauts = data
                 .sort((a, b) => b.hoursInSpace - a.hoursInSpace);
 
+            // map each astronaut to the HTML template string (see astronautToHTMLstr)
             const htmlArr = sortedAstronauts.map(astronautToHTMLStr);
+
+            // The final html string
+            // htmlArr is an array, so we joined it back to a string
             const htmlStr = `
             <p>Astronaut count: ${sortedAstronauts.length}</p>
             ${htmlArr.join("")}
@@ -22,6 +27,7 @@ window.addEventListener('load', (evt) => {
 });
 
 
+// returns an html string template with the details of given astronaut filled.
 function astronautToHTMLStr(astronaut) {
     return `
                 <div class="astronaut">
