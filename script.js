@@ -8,8 +8,7 @@ window.addEventListener('load', (evt) => {
         .then(res => res.json())
         .then(data => {
             // Sort the array
-            const sortedAstronauts = data
-                .sort((a, b) => b.hoursInSpace - a.hoursInSpace);
+            const sortedAstronauts = data .sort(hoursMostToLeast);
 
             // map each astronaut to the HTML template string (see astronautToHTMLstr)
             const htmlArr = sortedAstronauts.map(astronautToHTMLStr);
@@ -26,6 +25,9 @@ window.addEventListener('load', (evt) => {
         });
 });
 
+function hoursMostToLeast(a, b) {
+ return b.hoursInSpace - a.hoursInSpace
+}
 
 // returns an html string template with the details of given astronaut filled.
 function astronautToHTMLStr(astronaut) {
