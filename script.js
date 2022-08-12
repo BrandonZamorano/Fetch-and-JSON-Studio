@@ -11,13 +11,15 @@ window.addEventListener('load', (evt) => {
             const sortedAstronauts = data .sort(hoursMostToLeast);
 
             // map each astronaut to the HTML template string (see astronautToHTMLstr)
-            const htmlArr = sortedAstronauts.map(astronautToHTMLStr);
+            // and join it back to a string
+            const astronautHTMLStr = sortedAstronauts
+                .map(astronautToHTMLStr)
+                .join("");
 
             // The final html string
-            // htmlArr is an array, so we joined it back to a string
             const htmlStr = `
             <p>Astronaut count: ${sortedAstronauts.length}</p>
-            ${htmlArr.join("")}
+            ${astronautHTMLStr}
             `;
 
             containerEl.innerHTML = htmlStr
