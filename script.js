@@ -35,7 +35,7 @@ function astronautToHTMLStr(astronaut) {
                   <h3>${astronaut.firstName} ${astronaut.lastName}</h3>
                     <ul>
                       <li>Hourse in space: ${astronaut.hoursInSpace}</li>
-                      <li ${astronaut.active ? 'style="color: green;"' : ''}>Active: ${astronaut.active}</li>
+                      <li class="${astronaut.active ? 'active' : ''}">Active: ${astronaut.active}</li>
                       <li>Skills: ${astronaut.skills}</li>
                     </ul>
                   </div>
